@@ -1,0 +1,96 @@
+lines:
+  8:
+    name: แฮปปี้แลนด์ - สะพานพุทธ
+    color: red
+  44:
+    name: แฮปปี้แลนด์ - ท่าเตียน
+    color: red
+  156:
+    name: วงกลมลาดพร้าว
+    color: green
+stops:
+  - name: เดอะมอลบางกะปิ
+    type: stop
+    lines:
+      - - 8
+        - 44
+      - - 156
+    position:
+      x: 0
+      y: 0
+    direction:
+      x: 0
+      y: 1
+  - name: บิ็กซีลาดพร้าว
+    type: stop
+    lines:
+      - - 8
+        - 44
+      - - 156
+    position:
+      x: 0
+      y: 8
+    direction:
+      x: 0
+      y: 1
+  - name: ลาดพร้าว 71
+    type: stop
+    lines:
+      - - 156
+    position:
+      x: 2
+      y: 10
+    direction:
+      x: 1
+      y: 0
+  - name: นาคนิวาส 42
+    type: stop
+    lines:
+      - - 156
+    position:
+      x: 10
+      y: 15
+    direction:
+      x: 1
+      y: 1
+  - name: จตุจักร
+    type: stop
+    lines:
+      - - 8
+        - 44
+    position:
+      x: -5
+      y: 15
+    direction:
+      x: -1
+      y: 1
+  - name: อนุสาวรีย์ชัยสมรภูมื
+    type: stop
+    lines:
+      - - 8
+    position:
+      x: -10
+      y: 20
+    direction:
+      x: -1
+      y: 1
+  - name: สะพานควาย
+    type: blank
+    lines:
+      - - 44
+    position:
+      x: -3
+      y: 20
+    direction:
+      x: 1
+      y: 1
+  - name: ประดิพัทธิ์
+    type: stop
+    lines:
+      - - 44
+    position:
+      x: 0
+      y: 25
+    direction:
+      x: 0
+      y: 1
