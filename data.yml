@@ -1,96 +1,128 @@
 lines:
-  8:
+  - no: 8
     name: แฮปปี้แลนด์ - สะพานพุทธ
-    color: red
-  44:
+    color: 2
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00005
+  - no: 44
     name: แฮปปี้แลนด์ - ท่าเตียน
-    color: red
-  156:
+    color: 1
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00006
+      - B00007
+  - no: 999
     name: วงกลมลาดพร้าว
-    color: green
+    color: 3
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00008
+      - B00009
+      - B00003
+  - no: 156
+    name: วงกลมลาดพร้าว
+    color: 4
+    stops:
+      - B00000
+      - B00001
+      - B00002
+      - B00003
 stops:
-  - name: เดอะมอลบางกะปิ
+  - id: B00000
+    name: เดอะมอลบางกะปิ
     type: stop
-    lines:
-      - - 8
-        - 44
-      - - 156
     position:
       x: 0
       y: 0
     direction:
       x: 0
       y: 1
-  - name: บิ็กซีลาดพร้าว
+  - id: B00001
+    name: บิ็กซีลาดพร้าว
     type: stop
-    lines:
-      - - 8
-        - 44
-      - - 156
     position:
       x: 0
       y: 8
     direction:
       x: 0
       y: 1
-  - name: ลาดพร้าว 71
+  - id: B00002
+    name: ลาดพร้าว 71
     type: stop
-    lines:
-      - - 156
     position:
-      x: 2
-      y: 10
+      x: 10
+      y: 13
     direction:
       x: 1
       y: 0
-  - name: นาคนิวาส 42
+  - id: B00003
+    name: นาคนิวาส 42
     type: stop
-    lines:
-      - - 156
     position:
-      x: 10
+      x: 20
       y: 15
     direction:
       x: 1
       y: 1
-  - name: จตุจักร
+  - id: B00004
+    name: จตุจักร
     type: stop
-    lines:
-      - - 8
-        - 44
     position:
       x: -5
       y: 15
     direction:
       x: -1
       y: 1
-  - name: อนุสาวรีย์ชัยสมรภูมื
+  - id: B00005
+    name: อนุสาวรีย์ชัยสมรภูมิ
     type: stop
-    lines:
-      - - 8
     position:
       x: -10
       y: 20
     direction:
       x: -1
       y: 1
-  - name: สะพานควาย
+    pad_right: 2
+  - id: B00006
+    name: สะพานควาย
     type: blank
-    lines:
-      - - 44
     position:
       x: -3
       y: 20
     direction:
       x: 1
       y: 1
-  - name: ประดิพัทธิ์
+  - id: B00007
+    name: ประดิพัทธิ์
     type: stop
-    lines:
-      - - 44
     position:
       x: 0
       y: 25
     direction:
       x: 0
       y: 1
+  - id: B00008
+    name: หลังอนุ
+    type: blank
+    position:
+      x: -6
+      y: 23
+    direction:
+      x: 1
+      y: 1
+  - id: B00009
+    name: ก่อนนาค
+    type: blank
+    position:
+      x: 4
+      y: 15
+    direction:
+      x: 1
+      y: -1
