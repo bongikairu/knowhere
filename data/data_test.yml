@@ -1,0 +1,360 @@
+lines:
+  - no: 1
+    name: XXX
+    color: 1
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00005
+  - no: 35
+    name: XXX
+    color: 2
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00006
+      - B00007
+  - no: 75
+    name: XXX
+    color: 3
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00008
+      - B00009
+      - B00003
+  - no: 16
+    name: สุรวงศ์ - ประชาชื่น
+    color: 4
+    stops:
+      - B00000
+      - B00001
+      - B00002
+      - B00003
+  - no: 93
+    name: XXX
+    color: 5
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00005
+  - no: 187
+    name: XXX
+    color: 6
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00006
+      - B00007
+  - no: 36
+    name: XXX
+    color: 7
+    stops:
+      - B00000
+      - B00001
+      - B00004
+      - B00008
+      - B00009
+      - B00003
+  - no: 45
+    name: XXX
+    color: 8
+    stops:
+      - B00000
+      - B00001
+      - B00002
+      - B00003
+stops:
+  - id: s0
+    name: ไปรษณีย์กลาง
+    type: stop
+    position:
+      x: 0
+      y: 0
+    direction:
+      x: 0
+      y: 1
+  - id: s0
+    name: ไปรษณีย์กลาง
+    type: stop
+    position:
+      x: 0
+      y: 0
+    direction:
+      x: 0
+      y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+    name: ไปรษณีย์กลาง
+    type: stop
+    position:
+      x: 0
+      y: 0
+    direction:
+      x: 0
+      y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+    name: ไปรษณีย์กลาง
+    type: stop
+    position:
+      x: 0
+      y: 0
+    direction:
+      x: 0
+      y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+    name: ไปรษณีย์กลาง
+    type: stop
+    position:
+      x: 0
+      y: 0
+    direction:
+      x: 0
+      y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+    name: ไปรษณีย์กลาง
+    type: stop
+    position:
+      x: 0
+      y: 0
+    direction:
+      x: 0
+      y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1
+  - id: s0
+      name: ไปรษณีย์กลาง
+      type: stop
+      position:
+        x: 0
+        y: 0
+      direction:
+        x: 0
+        y: 1

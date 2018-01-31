@@ -1,8 +1,11 @@
+// data from https://www.facebook.com/maydaySATARANA/photos/pcb.320533031770557/320532675103926/?type=3&theater
+
 import yaml from 'js-yaml';
 import fs from 'fs';
 import _ from 'lodash';
 import Victor from 'victor';
 import math from 'mathjs';
+import XLSX from 'xlsx';
 
 let doc = null;
 
@@ -18,27 +21,125 @@ const stop_name_gap = 1;
 const stop_name_size = 2;
 const stop_font_style = "font-family: TH Sarabun New; font-weight: bold;";
 
-try {
-    doc = yaml.safeLoad(fs.readFileSync('data.yml', 'utf8'));
-    // console.log(doc);
-} catch (e) {
-    console.log(e);
-    process.exit(1);
+// try {
+//     doc = yaml.safeLoad(fs.readFileSync('data/data_test.yml', 'utf8'));
+//     // console.log(doc);
+// } catch (e) {
+//     console.log(e);
+//     process.exit(1);
+// }
+
+const i2c = (i) => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.substr(i - 1, 1);
+
+const wb = XLSX.read(fs.readFileSync('data/data_gpo.xlsx'), {type: 'buffer'});
+const ws = wb.Sheets[wb.SheetNames[0]];
+doc = {
+    lines: [],
+    stops: [],
+};
+
+let col = 2;
+while (true) {
+    if (!ws[`${i2c(col)}1`] || !ws[`${i2c(col)}1`].v || col === 10) break;
+
+    let stops_raw = [];
+    let row = 2;
+    while (true) {
+        if (!ws[`A${row}`] || !ws[`A${row}`].v) break;
+        const d = ws[`${i2c(col)}${row}`];
+        if (d) {
+            if (isNaN(parseInt(d.v))) {
+                stops_raw.push({
+                    'stop': `s${row}`,
+                    'sort': row,
+                });
+            } else {
+                stops_raw.push({
+                    'stop': `s${row}`,
+                    'sort': parseInt(d.v),
+                });
+            }
+        }
+        row++;
+    }
+    const stops = _.map(_.sortBy(stops_raw, 'sort'), 'stop');
+
+    const line = {
+        no: ws[`${i2c(col)}1`].v,
+        name: ws[`${i2c(col)}1`].v,
+        color: col - 1,
+        stops: stops,
+    };
+    doc.lines.push(line);
+    col++;
 }
 
-// generate stops' lines from lines' stops
-_.map(doc.lines, (line) => {
-    const line_no = line.no;
-    _.map(line.stops, (stop_id) => {
-        const stop_index = _.findIndex(doc.stops, ({id}) => id === stop_id);
-        if (stop_index < 0) throw new Error(`stop ${stop_id} not found for line ${line_no}`);
+let row = 2;
+while (true) {
+    if (!ws[`A${row}`] || !ws[`A${row}`].v) break;
+    const metacol = 10;
 
-        doc.stops[stop_index].lines = [
-            ...(doc.stops[stop_index].lines || []),
-            (line.combo ? line.combo : [line_no]),
-        ];
-    });
-});
+    let lines_raw = [];
+    let col = 2;
+    while (true) {
+        if (!ws[`${i2c(col)}1`] || !ws[`${i2c(col)}1`].v || col === metacol) break;
+        const d = ws[`${i2c(col)}${row}`];
+        if (d) {
+            const txt = `${d.v}`;
+            if (txt.indexOf(',') < 0) {
+                lines_raw.push({
+                    'line': [ws[`${i2c(col)}1`].v],
+                    'sort': col,
+                });
+            } else {
+                lines_raw.push({
+                    'line': [ws[`${i2c(col)}1`].v],
+                    'sort': parseInt(txt.substring(txt.indexOf(',') + 1)),
+                });
+            }
+        }
+        col++;
+    }
+    // console.log(ws[`A${row}`].v, lines_raw);
+    const lines = _.map(_.sortBy(lines_raw, 'sort'), 'line');
+
+    const stop = {
+        id: `s${row}`,
+        name: ws[`A${row}`].v,
+        type: (ws[`A${row}`].v === '-' ? 'blank' : 'stop'),
+        position: {
+            x: parseInt(ws[`${i2c(metacol + 0)}${row}`].v),
+            y: parseInt(ws[`${i2c(metacol + 1)}${row}`].v),
+        },
+        direction: {
+            x: parseInt(ws[`${i2c(metacol + 2)}${row}`].v),
+            y: parseInt(ws[`${i2c(metacol + 3)}${row}`].v),
+        },
+        pad_left: parseInt(ws[`${i2c(metacol + 4)}${row}`].v),
+        pad_right: parseInt(ws[`${i2c(metacol + 5)}${row}`].v),
+        lines: lines,
+    };
+    doc.stops.push(stop);
+    row++;
+}
+
+console.log(doc);
+if (!doc) process.exit(1);
+
+// generate stops' lines from lines' stops
+// for yml only
+// _.map(doc.lines, (line) => {
+//     const line_no = line.no;
+//     _.map(line.stops, (stop_id) => {
+//         const stop_index = _.findIndex(doc.stops, ({id}) => id === stop_id);
+//         if (stop_index < 0) throw new Error(`stop ${stop_id} not found for line ${line_no}`);
+//
+//         doc.stops[stop_index].lines = [
+//             ...(doc.stops[stop_index].lines || []),
+//             (line.combo ? line.combo : [line_no]),
+//         ];
+//     });
+// });
 
 _.map(doc.stops, (stop, stop_idx) => {
     doc.stops[stop_idx].lines_real = doc.stops[stop_idx].lines || [];
@@ -60,9 +161,9 @@ const add = (text) => output += text + "\n";
 const add2 = (text) => output2 += text + "\n";
 const yp2sp = (pos) => ({x: 500 + pos.x * scale, y: 1000 - 200 - pos.y * scale});
 
-add(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">`);
+add(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -500 1500 1500">`);
 
-add(`<rect x="0" y="0" width="1000" height="1000" fill="#DCDCDC" />`)
+add(`<rect x="-1000" y="-1000" width="3000" height="3000" fill="#DCDCDC" />`)
 
 let strokes = {};
 
